@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.apd545.hotel.ReportingController"
+            stylesheets="@app.css"
+            styleClass="page">
+
+    <!-- Top bar -->
+    <top>
+        <HBox spacing="12" alignment="CENTER_LEFT" styleClass="appbar">
+            <children>
+                <Label text="Reporting (tabular only)" styleClass="title"/>
+            </children>
+        </HBox>
+    </top>
+
+    <!-- Center content -->
+    <center>
+        <VBox spacing="12">
+            <children>
+
+                <TabPane VBox.vgrow="ALWAYS">
+                    <tabs>
+
+                        <!-- Revenue reports tab -->
+                        <Tab text="Revenue reports" closable="false">
+                            <content>
+                                <VBox spacing="8" styleClass="card">
+                                    <children>
+
+                                        <Label text="Revenue reports (tabular)"
+                                               styleClass="section"/>
+
+                                        <TableView fx:id="tblRevenue" prefHeight="300">
+                                            <columns>
+                                                <TableColumn fx:id="colRevDate"    text="Date"         prefWidth="140"/>
+                                                <TableColumn fx:id="colRevRoom"    text="Room type"    prefWidth="160"/>
+                                                <TableColumn fx:id="colRevNights"  text="Nights"       prefWidth="80"/>
+                                                <TableColumn fx:id="colRevAmount"  text="Amount"       prefWidth="120"/>
+                                                <TableColumn fx:id="colRevMethod"  text="Payment method" prefWidth="160"/>
+                                            </columns>
+                                        </TableView>
+
+                                    </children>
+                                </VBox>
+                            </content>
+                        </Tab>
+
+                        <!-- Occupancy reports -->
+                        <Tab text="Occupancy reports" closable="false">
+                            <content>
+                                <VBox spacing="8" styleClass="card">
+                                    <children>
+
+                                        <Label text="Occupancy reports (tabular)"
+                                               styleClass="section"/>
+
+                                        <TableView fx:id="tblOcc" prefHeight="300">
+                                            <columns>
+                                                <TableColumn fx:id="colOccDate"    text="Date"          prefWidth="150"/>
+                                                <TableColumn fx:id="colOccTotal"   text="Total rooms"   prefWidth="150"/>
+                                                <TableColumn fx:id="colOccUsed"    text="Occupied rooms" prefWidth="160"/>
+                                                <TableColumn fx:id="colOccPercent" text="Occupancy %"   prefWidth="120"/>
+                                            </columns>
+                                        </TableView>
+
+                                    </children>
+                                </VBox>
+                            </content>
+                        </Tab>
+
+                        <!-- Activity logs -->
+                        <Tab text="Activity logs" closable="false">
+                            <content>
+                                <VBox spacing="8" styleClass="card">
+                                    <children>
+
+                                        <Label text="Activity logs (tabular)"
+                                               styleClass="section"/>
+
+                                        <TableView fx:id="tblLog" prefHeight="300">
+                                            <columns>
+                                                <TableColumn fx:id="colLogTime"     text="Timestamp" prefWidth="180"/>
+                                                <TableColumn fx:id="colLogUser"     text="User"      prefWidth="150"/>
+                                                <TableColumn fx:id="colLogAction"   text="Action"    prefWidth="180"/>
+                                                <TableColumn fx:id="colLogDetails"  text="Details"   prefWidth="300"/>
+                                            </columns>
+                                        </TableView>
+
+                                    </children>
+                                </VBox>
+                            </content>
+                        </Tab>
+
+                    </tabs>
+                </TabPane>
+
+            </children>
+        </VBox>
+    </center>
+
+    <!-- Bottom: Export buttons + Back -->
+    <bottom>
+        <HBox spacing="12" alignment="CENTER_RIGHT">
+            <padding>
+                <Insets top="10" right="20" bottom="10" left="20"/>
+            </padding>
+
+            <children>
+                <Button text="Export CSV" onAction="#onExportCsv" />
+                <Button text="Export PDF" onAction="#onExportPdf" />
+                <Button text="Back to Home" onAction="#onBackToHome"/>
+            </children>
+        </HBox>
+    </bottom>
+
+</BorderPane>

@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.seneca.inventory.ModifyProductController"
+            stylesheets="@../css/theme.css"
+            styleClass="app-root"
+            prefWidth="980" prefHeight="660">
+
+    <!-- header -->
+    <top>
+        <HBox BorderPane.alignment="CENTER_LEFT" styleClass="card">
+            <children>
+                <Label text="Modify Product" styleClass="title"/>
+            </children>
+            <padding>
+                <Insets top="12" right="16" bottom="12" left="16"/>
+            </padding>
+        </HBox>
+    </top>
+
+    <!-- center: form + tables -->
+    <center>
+        <GridPane hgap="16" vgap="16" BorderPane.alignment="CENTER">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" percentWidth="35"/>
+                <ColumnConstraints hgrow="SOMETIMES" percentWidth="65"/>
+            </columnConstraints>
+
+            <rowConstraints>
+                <RowConstraints vgrow="ALWAYS"/>
+            </rowConstraints>
+
+            <children>
+
+                <!-- left: product fields -->
+                <VBox spacing="10" GridPane.columnIndex="0" styleClass="card">
+                    <children>
+                        <GridPane hgap="10" vgap="10">
+                            <columnConstraints>
+                                <ColumnConstraints halignment="RIGHT" minWidth="80"/>
+                                <ColumnConstraints hgrow="ALWAYS"/>
+                            </columnConstraints>
+
+                            <children>
+                                <Label text="ID:" GridPane.rowIndex="0"/>
+                                <TextField fx:id="fieldId"
+                                           GridPane.columnIndex="1"
+                                           GridPane.rowIndex="0"
+                                           editable="false"
+                                           styleClass="text-input"/>
+
+                                <Label text="Name:" GridPane.rowIndex="1"/>
+                                <TextField fx:id="fieldName"
+                                           GridPane.columnIndex="1"
+                                           GridPane.rowIndex="1"
+                                           styleClass="text-input"/>
+
+                                <Label text="Inv:" GridPane.rowIndex="2"/>
+                                <TextField fx:id="fieldInv"
+                                           GridPane.columnIndex="1"
+                                           GridPane.rowIndex="2"
+                                           styleClass="text-input"/>
+
+                                <Label text="Price:" GridPane.rowIndex="3"/>
+                                <TextField fx:id="fieldPrice"
+                                           GridPane.columnIndex="1"
+                                           GridPane.rowIndex="3"
+                                           styleClass="text-input"/>
+
+                                <Label text="Min:" GridPane.rowIndex="4"/>
+                                <TextField fx:id="fieldMin"
+                                           GridPane.columnIndex="1"
+                                           GridPane.rowIndex="4"
+                                           styleClass="text-input"/>
+
+                                <Label text="Max:" GridPane.rowIndex="5"/>
+                                <TextField fx:id="fieldMax"
+                                           GridPane.columnIndex="1"
+                                           GridPane.rowIndex="5"
+                                           styleClass="text-input"/>
+                            </children>
+                        </GridPane>
+                    </children>
+                    <padding>
+                        <Insets top="16" right="16" bottom="16" left="16"/>
+                    </padding>
+                </VBox>
+
+                <!-- right: parts tables -->
+                <VBox spacing="10" GridPane.columnIndex="1" styleClass="card">
+                    <children>
+
+                        <!-- all parts -->
+                        <VBox spacing="6">
+                            <children>
+                                <Label text="All Parts"/>
+
+                                <HBox spacing="8">
+                                    <children>
+                                        <TextField fx:id="searchAvailableParts"
+                                                   promptText="Search parts"
+                                                   styleClass="text-input"/>
+                                        <Button text="Search"
+                                                styleClass="btn btn-neutral"
+                                                onAction="#onSearchAvailableParts"/>
+                                    </children>
+                                </HBox>
+
+                                <TableView fx:id="tableAvailableParts"
+                                           prefHeight="220"
+                                           styleClass="table"/>
+
+                                <HBox spacing="8" alignment="CENTER_RIGHT">
+                                    <children>
+                                        <Button text="Add"
+                                                onAction="#onAddPart"
+                                                styleClass="btn btn-success"/>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </VBox>
+
+                        <Separator/>
+
+                        <!-- associated parts -->
+                        <VBox spacing="6">
+                            <children>
+                                <Label text="Associated Parts"/>
+
+                                <HBox spacing="8">
+                                    <children>
+                                        <TextField fx:id="searchAssociatedParts"
+                                                   promptText="Search associated parts"
+                                                   styleClass="text-input"/>
+                                        <Button text="Search"
+                                                styleClass="btn btn-neutral"
+                                                onAction="#onSearchAssociatedParts"/>
+                                    </children>
+                                </HBox>
+
+                                <TableView fx:id="tableAssociatedParts"
+                                           prefHeight="220"
+                                           styleClass="table"/>
+
+                                <HBox spacing="8" alignment="CENTER_RIGHT">
+                                    <children>
+                                        <Button text="Remove"
+                                                onAction="#onRemovePart"
+                                                styleClass="btn btn-danger"/>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </VBox>
+
+                    </children>
+                    <padding>
+                        <Insets top="16" right="16" bottom="16" left="16"/>
+                    </padding>
+                </VBox>
+
+            </children>
+        </GridPane>
+    </center>
+
+    <!-- bottom buttons -->
+    <bottom>
+        <HBox spacing="8" alignment="CENTER_RIGHT" styleClass="card">
+            <children>
+                <Button text="Save"
+                        onAction="#onSave"
+                        styleClass="btn btn-success"/>
+                <Button text="Cancel"
+                        onAction="#onCancel"
+                        styleClass="btn btn-neutral"/>
+            </children>
+            <padding>
+                <Insets top="8" right="16" bottom="16" left="16"/>
+            </padding>
+        </HBox>
+    </bottom>
+
+</BorderPane>

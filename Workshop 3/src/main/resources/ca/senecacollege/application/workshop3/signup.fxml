@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="ca.senecacollege.application.workshop3.controllers.SignupController"
+            stylesheets="@style.css"
+            prefWidth="600" prefHeight="550">
+
+    <children>
+
+        <HBox styleClass="header"
+              alignment="CENTER"
+              prefHeight="110"
+              AnchorPane.topAnchor="0"
+              AnchorPane.leftAnchor="0"
+              AnchorPane.rightAnchor="0">
+            <Label text="Signup" styleClass="header-title"/>
+        </HBox>
+
+        <VBox spacing="18" alignment="CENTER"
+              AnchorPane.topAnchor="140"
+              AnchorPane.leftAnchor="0"
+              AnchorPane.rightAnchor="0">
+
+            <VBox spacing="6" alignment="CENTER">
+                <Label text="Username:"/>
+                <TextField fx:id="txtUsername" prefWidth="260"/>
+            </VBox>
+
+            <VBox spacing="6" alignment="CENTER">
+                <Label text="Password:"/>
+                <PasswordField fx:id="txtPassword" prefWidth="260"/>
+            </VBox>
+
+            <VBox spacing="6" alignment="CENTER">
+                <Label text="Confirm:"/>
+                <PasswordField fx:id="txtConfirm" prefWidth="260"/>
+            </VBox>
+
+            <VBox spacing="6" alignment="CENTER">
+                <Label text="Email:"/>
+                <TextField fx:id="txtEmail" prefWidth="260"/>
+            </VBox>
+
+            <Label fx:id="lblMessage" style="-fx-text-fill:red;"/>
+
+            <VBox spacing="12" alignment="CENTER">
+                <Button text="Create Account" prefWidth="200" onAction="#onCreate"/>
+                <Button text="Back" prefWidth="200" onAction="#onBack"/>
+            </VBox>
+
+        </VBox>
+    </children>
+
+</AnchorPane>

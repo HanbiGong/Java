@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.seneca.inventory.LoginController"
+            stylesheets="@../css/theme.css"
+            styleClass="app-root"
+            prefWidth="560" prefHeight="380">
+    <children>
+        <VBox AnchorPane.leftAnchor="70" AnchorPane.rightAnchor="70"
+              AnchorPane.topAnchor="60" AnchorPane.bottomAnchor="60"
+              spacing="16" styleClass="card">
+            <children>
+                <!-- 타이틀: 진한 볼드 하늘색 -->
+                <Label text="Inventory Manager — Login" styleClass="title"/>
+
+                <GridPane hgap="10" vgap="12">
+                    <columnConstraints>
+                        <ColumnConstraints halignment="RIGHT" prefWidth="120"/>
+                        <ColumnConstraints prefWidth="260"/>
+                    </columnConstraints>
+                    <children>
+                        <Label text="Username:" GridPane.rowIndex="0"/>
+                        <TextField fx:id="inputUsername"
+                                   promptText="Enter username"
+                                   GridPane.columnIndex="1" GridPane.rowIndex="0"
+                                   styleClass="text-input"/>
+
+                        <Label text="Password:" GridPane.rowIndex="1"/>
+                        <PasswordField fx:id="inputPassword"
+                                       promptText="Enter password"
+                                       GridPane.columnIndex="1" GridPane.rowIndex="1"
+                                       styleClass="text-input"/>
+                    </children>
+                </GridPane>
+
+                <HBox spacing="10" alignment="CENTER_RIGHT">
+                    <children>
+                        <Button text="Login" onAction="#onLogin" styleClass="btn btn-success"/>
+                        <Button text="Cancel" onAction="#onCancel" styleClass="btn btn-neutral"/>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

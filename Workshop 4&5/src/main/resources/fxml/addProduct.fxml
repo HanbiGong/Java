@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.seneca.inventory.ProductController"
+            stylesheets="@../css/theme.css"
+            styleClass="app-root"
+            prefWidth="980" prefHeight="660">
+
+    <top>
+        <HBox BorderPane.alignment="CENTER_LEFT" styleClass="card">
+            <children>
+                <Label text="Add Product" styleClass="title"/>
+            </children>
+        </HBox>
+    </top>
+
+    <center>
+        <GridPane hgap="16" vgap="12" BorderPane.alignment="CENTER">
+            <columnConstraints>
+                <ColumnConstraints percentWidth="45"/>
+                <ColumnConstraints percentWidth="10"/>
+                <ColumnConstraints percentWidth="45"/>
+            </columnConstraints>
+            <children>
+
+                <!-- left: product basic fields -->
+                <VBox spacing="10" GridPane.columnIndex="0" styleClass="card">
+                    <children>
+                        <GridPane hgap="8" vgap="8">
+                            <columnConstraints>
+                                <ColumnConstraints halignment="RIGHT" prefWidth="120"/>
+                                <ColumnConstraints prefWidth="200"/>
+                            </columnConstraints>
+                            <children>
+                                <Label text="ID:" GridPane.rowIndex="0"/>
+                                <TextField fx:id="fieldId"
+                                           editable="false"
+                                           promptText="Auto-generated"
+                                           GridPane.columnIndex="1"
+                                           GridPane.rowIndex="0"
+                                           styleClass="text-input"/>
+
+                                <Label text="Name:" GridPane.rowIndex="1"/>
+                                <TextField fx:id="fieldName"
+                                           GridPane.columnIndex="1"
+                                           GridPane.rowIndex="1"
+                                           styleClass="text-input"/>
+
+                                <Label text="Inventory:" GridPane.rowIndex="2"/>
+                                <TextField fx:id="fieldInv"
+                                           GridPane.columnIndex="1"
+                                           GridPane.rowIndex="2"
+                                           styleClass="text-input"/>
+
+                                <Label text="Price:" GridPane.rowIndex="3"/>
+                                <TextField fx:id="fieldPrice"
+                                           GridPane.columnIndex="1"
+                                           GridPane.rowIndex="3"
+                                           styleClass="text-input"/>
+
+                                <Label text="Min:" GridPane.rowIndex="4"/>
+                                <TextField fx:id="fieldMin"
+                                           GridPane.columnIndex="1"
+                                           GridPane.rowIndex="4"
+                                           styleClass="text-input"/>
+
+                                <Label text="Max:" GridPane.rowIndex="5"/>
+                                <TextField fx:id="fieldMax"
+                                           GridPane.columnIndex="1"
+                                           GridPane.rowIndex="5"
+                                           styleClass="text-input"/>
+                            </children>
+                        </GridPane>
+                    </children>
+                </VBox>
+
+                <!-- right: parts tables -->
+                <VBox spacing="10" GridPane.columnIndex="2" styleClass="card">
+                    <children>
+
+                        <!-- all parts -->
+                        <HBox spacing="8">
+                            <children>
+                                <TextField fx:id="searchAvailableParts"
+                                           promptText="Search parts"
+                                           styleClass="text-input"/>
+                                <Button text="Search"
+                                        styleClass="btn btn-neutral"
+                                        onAction="#onSearchAvailableParts"/>
+                            </children>
+                        </HBox>
+
+                        <TableView fx:id="tableAvailableParts"
+                                   prefHeight="220"
+                                   styleClass="table"/>
+
+                        <HBox spacing="8">
+                            <children>
+                                <Button text="Add"
+                                        onAction="#onAddPart"
+                                        styleClass="btn btn-success"/>
+                            </children>
+                        </HBox>
+
+                        <Separator/>
+
+                        <!-- associated parts (optional search) -->
+                        <HBox spacing="8">
+                            <children>
+                                <TextField fx:id="searchAssociatedParts"
+                                           promptText="Search associated parts"
+                                           styleClass="text-input"/>
+                                <Button text="Search"
+                                        styleClass="btn btn-neutral"
+                                        onAction="#onSearchAssociatedParts"/>
+                            </children>
+                        </HBox>
+
+                        <TableView fx:id="tableAssociatedParts"
+                                   prefHeight="220"
+                                   styleClass="table"/>
+
+                        <HBox spacing="8">
+                            <children>
+                                <Button text="Delete"
+                                        onAction="#onRemovePart"
+                                        styleClass="btn btn-danger"/>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+
+            </children>
+            <padding>
+                <Insets top="8" right="16" bottom="16" left="16"/>
+            </padding>
+        </GridPane>
+    </center>
+
+    <bottom>
+        <HBox spacing="10"
+              alignment="CENTER_RIGHT"
+              BorderPane.alignment="CENTER_RIGHT">
+            <children>
+                <Button text="Save"
+                        onAction="#onSave"
+                        styleClass="btn btn-success"/>
+                <Button text="Cancel"
+                        onAction="#onCancel"
+                        styleClass="btn btn-neutral"/>
+            </children>
+            <padding>
+                <Insets top="8" right="16" bottom="16" left="16"/>
+            </padding>
+        </HBox>
+    </bottom>
+</BorderPane>

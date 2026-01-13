@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      spacing="16" styleClass="page"
+      stylesheets="@app.css">
+
+    <children>
+        <HBox spacing="12" alignment="CENTER_LEFT" styleClass="appbar">
+            <children>
+                <Label text="Kiosk – Step S3: Rooms"
+                       styleClass="title"/>
+            </children>
+        </HBox>
+
+        <VBox spacing="10" styleClass="card">
+            <children>
+                <Label text="Select room types and quantities for this reservation."
+                       styleClass="section"/>
+
+                <Label text="Example: single: 1, double: 2, penthouse: 0 for a group."
+                       wrapText="true"/>
+
+                <GridPane hgap="12" vgap="8">
+                    <columnConstraints>
+                        <ColumnConstraints percentWidth="50"/>
+                        <ColumnConstraints percentWidth="50"/>
+                    </columnConstraints>
+
+                    <children>
+                        <Label text="Single" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                        <Spinner prefWidth="80" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                        <Label text="Double" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                        <Spinner prefWidth="80" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                        <Label text="Deluxe" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                        <Spinner prefWidth="80" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                        <Label text="Penthouse" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                        <Spinner prefWidth="80" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+                    </children>
+                </GridPane>
+            </children>
+        </VBox>
+    </children>
+</VBox>

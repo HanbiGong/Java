@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            stylesheets="@style.css"
+            fx:controller="ca.senecacollege.application.workshop3.controllers.LoanAmortizationController"
+            prefWidth="600" prefHeight="500">
+
+    <VBox spacing="15" alignment="TOP_CENTER"
+          AnchorPane.topAnchor="0"
+          AnchorPane.leftAnchor="0"
+          AnchorPane.rightAnchor="0">
+
+        <HBox styleClass="title-bar" alignment="CENTER">
+            <Label text="Amortization Schedule"/>
+        </HBox>
+
+        <TableView fx:id="tblAmortization" prefHeight="400">
+            <columns>
+                <TableColumn fx:id="colMonth" text="Month" prefWidth="80"/>
+                <TableColumn fx:id="colPrincipal" text="Principal" prefWidth="120"/>
+                <TableColumn fx:id="colInterest" text="Interest" prefWidth="120"/>
+                <TableColumn fx:id="colBalance" text="Balance" prefWidth="120"/>
+            </columns>
+        </TableView>
+
+        <Button text="Back" onAction="#onBack"/>
+
+    </VBox>
+
+</AnchorPane>
+

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.apd545.hotel.AdminDashboardController">
+
+    <!-- =================== TOP =================== -->
+    <top>
+        <VBox spacing="10" style="-fx-padding: 15;">
+
+            <Label text="Admin Dashboard" style="-fx-font-size: 20px;" />
+
+            <HBox spacing="10">
+
+                <TextField fx:id="txtSearchName"
+                           promptText="Search by Name"
+                           prefWidth="150"/>
+
+                <TextField fx:id="txtSearchPhone"
+                           promptText="Search by Phone"
+                           prefWidth="150"/>
+
+                <DatePicker fx:id="dpFrom" promptText="From Date"/>
+                <DatePicker fx:id="dpTo" promptText="To Date"/>
+
+                <ComboBox fx:id="cbStatus" prefWidth="140"/>
+                <ComboBox fx:id="cbSort"   prefWidth="140"/>
+
+                <Button text="Apply" onAction="#handleApplyFilters"/>
+                <Button text="Reset" onAction="#handleResetFilters"/>
+
+            </HBox>
+        </VBox>
+    </top>
+
+    <!-- =================== CENTER =================== -->
+    <center>
+        <VBox spacing="10">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+
+            <TableView fx:id="tblReservations" prefHeight="420">
+                <columns>
+                    <TableColumn fx:id="colId"       text="ID"         prefWidth="60"/>
+                    <TableColumn fx:id="colGuest"    text="Guest"      prefWidth="150"/>
+                    <TableColumn fx:id="colRoom"     text="Room"       prefWidth="80"/>
+                    <TableColumn fx:id="colCheckIn"  text="Check In"   prefWidth="100"/>
+                    <TableColumn fx:id="colCheckOut" text="Check Out"  prefWidth="100"/>
+                    <TableColumn fx:id="colStatus"   text="Status"     prefWidth="100"/>
+                    <TableColumn fx:id="colTotal"    text="Total ($)"  prefWidth="100"/>
+                </columns>
+            </TableView>
+
+            <Label fx:id="lblMessage" text="" />
+        </VBox>
+    </center>
+
+    <!-- =================== BOTTOM =================== -->
+    <bottom>
+        <VBox spacing="8" alignment="CENTER_RIGHT" style="-fx-padding: 15;">
+
+            <!-- FIRST ROW -->
+            <HBox spacing="10" alignment="CENTER_RIGHT">
+                <Button text="Refresh"   onAction="#handleRefresh"/>
+                <Button text="Create"    onAction="#handleCreate"/>
+                <Button text="Edit"      onAction="#handleEdit"/>
+                <Button text="Cancel"    onAction="#handleCancel"/>
+                <Button text="Check-out" onAction="#handleCheckout"/>
+            </HBox>
+
+            <!-- SECOND ROW -->
+            <HBox spacing="10" alignment="CENTER_RIGHT">
+                <Button text="Logs"       onAction="#handleLogs"/>
+                <Button text="Loyalty"    onAction="#handleLoyalty"/>
+                <Button text="Feedback"   onAction="#handleFeedback"/>
+                <Button text="Reporting"  onAction="#handleReporting"/>
+                <Button text="Back"       onAction="#handleBackToLaunch"/>
+            </HBox>
+
+        </VBox>
+    </bottom>
+
+</BorderPane>

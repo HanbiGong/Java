@@ -1,0 +1,73 @@
+/**************************
+  GLOBAL WINDOW BACKGROUND
+**************************/
+.root {
+    -fx-background-color: #f3f8ea;
+}
+
+/**************************
+  HEADER
+**************************/
+.header {
+    -fx-background-color: #6C9363;
+    -fx-padding: 25 0 25 0;
+    -fx-alignment: center;
+}
+
+.header-title {
+    -fx-text-fill: white;
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+}
+
+/**************************
+  BUTTONS
+**************************/
+.button, .action-button {
+    -fx-background-color: #8EC47A;
+    -fx-background-radius: 25;
+    -fx-padding: 10 25 10 25;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+}
+
+.button:hover, .action-button:hover {
+    -fx-background-color: #7CAF6B;
+}
+
+/**************************
+  INPUTS (TextField, Password)
+**************************/
+.text-field, .password-field {
+    -fx-background-color: white;
+    -fx-border-color: #c6d8b8;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 6;
+}
+
+.combo-box {
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+}
+
+/**************************
+  LABELS
+**************************/
+.label {
+    -fx-font-size: 16px;
+    -fx-text-fill: #4a5a45;
+}
+
+/**************************
+  LIST & TABLE
+**************************/
+.list-view {
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-border-color: #c6d8b8;
+}
+
+.table-view {
+    -fx-border-color: #c6d8b8;
+}

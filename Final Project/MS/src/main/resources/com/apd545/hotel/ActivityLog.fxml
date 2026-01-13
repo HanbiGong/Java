@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.apd545.hotel.ActivityLogController"
+      spacing="20"
+      alignment="TOP_CENTER"
+      styleClass="page"
+      stylesheets="@app.css">
+
+    <Label text="Activity Logs" style="-fx-font-size: 22px; -fx-padding: 10;" />
+
+    <TableView fx:id="tblLogs" prefHeight="500" prefWidth="800">
+        <columns>
+            <TableColumn fx:id="colId" text="ID" prefWidth="60"/>
+            <TableColumn fx:id="colTimestamp" text="Timestamp" prefWidth="180"/>
+            <TableColumn fx:id="colUser" text="User" prefWidth="200"/>
+            <TableColumn fx:id="colAction" text="Action" prefWidth="360"/>
+        </columns>
+    </TableView>
+
+    <HBox alignment="CENTER_RIGHT" spacing="20" style="-fx-padding: 0 20 20 20;">
+        <Button text="Back" onAction="#handleBack"/>
+    </HBox>
+
+</VBox>

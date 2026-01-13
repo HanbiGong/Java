@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.apd545.hotel.AdminFeedbackController">
+
+    <top>
+        <VBox spacing="10" style="-fx-padding: 15;">
+            <Label text="Feedback Management" style="-fx-font-size: 20px;"/>
+
+            <HBox spacing="10">
+                <DatePicker fx:id="dpFrom" promptText="From"/>
+                <DatePicker fx:id="dpTo" promptText="To"/>
+
+                <Button text="Filter" onAction="#handleFilter"/>
+                <Button text="Reset" onAction="#handleReset"/>
+                <Button text="Reports" onAction="#handleReports"/>
+
+                <Button text="Back" onAction="#handleBack"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <TableView fx:id="tblFeedback" prefHeight="450">
+            <columns>
+                <TableColumn fx:id="colGuest" text="Guest" prefWidth="120"/>
+                <TableColumn fx:id="colDate" text="Check-Out" prefWidth="120"/>
+                <TableColumn fx:id="colRating" text="Rating" prefWidth="60"/>
+                <TableColumn fx:id="colComment" text="Comment" prefWidth="300"/>
+                <TableColumn fx:id="colSentiment" text="Sentiment" prefWidth="100"/>
+            </columns>
+        </TableView>
+    </center>
+
+</BorderPane>
+

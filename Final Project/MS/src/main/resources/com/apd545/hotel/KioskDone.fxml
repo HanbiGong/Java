@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.apd545.hotel.KioskDoneController"
+      spacing="20" alignment="CENTER"
+      styleClass="page"
+      stylesheets="@app.css">
+
+    <children>
+
+        <HBox spacing="12" alignment="CENTER" styleClass="appbar">
+            <children>
+                <Label text="Kiosk – Reservation Complete" styleClass="title"/>
+            </children>
+        </HBox>
+
+        <VBox spacing="10" alignment="CENTER" styleClass="card">
+            <children>
+
+                <Label text="Thank you! Your reservation is complete."
+                       styleClass="section" />
+
+                <GridPane hgap="12" vgap="8" alignment="CENTER">
+                    <children>
+
+                        <Label text="Reservation #" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                        <Label fx:id="lblResId" text="-" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+                        <Label text="Guest" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                        <Label fx:id="lblGuest" text="-" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+                        <Label text="Room(s)" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                        <Label fx:id="lblRoom" text="-" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+                        <Label text="Check-in" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                        <Label fx:id="lblCheckIn" text="-" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+                        <Label text="Check-out" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+                        <Label fx:id="lblCheckOut" text="-" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+
+                        <Label text="Total" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+                        <Label fx:id="lblTotal" text="\$0.00" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+
+                    </children>
+                </GridPane>
+
+                <Label text="Please keep this receipt for your records."
+                       wrapText="true"
+                       textAlignment="CENTER"/>
+
+                <Button text="Back to Welcome"
+                        maxWidth="200"
+                        onAction="#handleBackToHome"/>
+            </children>
+        </VBox>
+
+    </children>
+</VBox>

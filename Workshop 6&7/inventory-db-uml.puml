@@ -1,0 +1,96 @@
+@startuml
+
+package "model" {
+    abstract class Part {
+        - id : int
+        - name : String
+        - price : double
+        - stock : int
+        - min : int
+        - max : int
+    }
+
+    class InHouse {
+        - machineId : int
+    }
+
+    class Outsourced {
+        - companyName : String
+    }
+
+    class Product {
+        - id : int
+        - name : String
+        - price : double
+        - stock : int
+        - min : int
+        - max : int
+    }
+
+    Part <|-- InHouse
+    Part <|-- Outsourced
+}
+
+package "repository" {
+    class PartRepository {
+        + getAll()
+        + add()
+        + remove()
+        + findById()
+        + searchByName()
+    }
+
+    class ProductRepository {
+        + getAll()
+        + add()
+        + remove()
+        + findById()
+        + searchByName()
+    }
+}
+
+package "service" {
+    class InventoryService {
+        + addInHousePart()
+        + addOutsourcedPart()
+        + updatePart()
+        + deletePart()
+        + addProduct()
+        + updateProduct()
+        + deleteProduct()
+        + saveToDatabase()
+        + loadFromDatabase()
+        + saveToXmlFile()
+    }
+}
+
+package "db" {
+    class DbUtil {
+        + getConnection()
+        + initSchema()
+    }
+}
+
+package "controller" {
+    class MainController
+    class PartController
+    class ModifyPartController
+    class ProductController
+    class ModifyProductController
+    class LoginController
+}
+
+' relationships
+InventoryService --> PartRepository
+InventoryService --> ProductRepository
+InventoryService --> DbUtil
+
+MainController --> InventoryService
+PartController --> InventoryService
+ModifyPartController --> InventoryService
+ProductController --> InventoryService
+ModifyProductController --> InventoryService
+
+Product "1" o-- "0..*" Part : has
+
+@enduml

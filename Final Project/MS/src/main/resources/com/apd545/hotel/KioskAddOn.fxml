@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.apd545.hotel.KioskAddOnController"
+      spacing="20"
+      alignment="TOP_CENTER"
+      styleClass="page"
+      stylesheets="@app.css">
+
+    <HBox spacing="12" alignment="CENTER_LEFT" styleClass="appbar">
+        <children>
+            <Label text="Kiosk – Step 5: Add-ons" styleClass="title"/>
+        </children>
+    </HBox>
+
+    <VBox spacing="20" alignment="CENTER_LEFT" styleClass="card">
+        <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+        <Label text="Choose additional services:" styleClass="section"/>
+
+        <VBox spacing="10">
+            <CheckBox text="Wi-Fi (+$20/night)" fx:id="cbWifi"/>
+            <CheckBox text="Breakfast (+$15/night)" fx:id="cbBreakfast"/>
+            <CheckBox text="Parking (+$25/night)" fx:id="cbParking"/>
+            <CheckBox text="Spa (+$40/booking)" fx:id="cbSpa"/>
+        </VBox>
+
+        <Label fx:id="lblMessage" styleClass="error"/>
+
+        <HBox spacing="20" alignment="CENTER_RIGHT">
+            <Button text="Back" onAction="#backToCustomerInfo"/>
+            <Button text="Show Bill" onAction="#onShowSummary"/>
+        </HBox>
+    </VBox>
+
+</VBox>

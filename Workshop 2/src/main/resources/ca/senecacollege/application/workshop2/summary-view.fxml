@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="ca.senecacollege.application.workshop2.SummaryController"
+            stylesheets="@styles.css">
+
+    <!-- Title -->
+    <top>
+        <HBox alignment="CENTER" styleClass="top-title"
+              BorderPane.alignment="CENTER">
+            <children>
+                <Label text="Summary"/>
+            </children>
+        </HBox>
+    </top>
+
+    <!-- Main Content -->
+    <center>
+        <VBox spacing="12" alignment="TOP_LEFT">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+
+            <HBox spacing="10">
+                <Label text="Select Type:"/>
+                <ComboBox fx:id="cbSummaryType" prefWidth="180"/>
+            </HBox>
+
+            <TableView fx:id="tblSummary" prefHeight="220">
+                <columns>
+                    <TableColumn fx:id="colField" text="Field" prefWidth="150"/>
+                    <TableColumn fx:id="colValue" text="Value" prefWidth="250"/>
+                </columns>
+            </TableView>
+
+        </VBox>
+    </center>
+
+    <!-- Bottom -->
+    <bottom>
+        <HBox alignment="CENTER_RIGHT">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            <Button text="Close" onAction="#onCloseClicked"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>

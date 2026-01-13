@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      stylesheets="@style.css"
+      fx:controller="ca.senecacollege.application.workshop3.controllers.LoanController"
+      spacing="20" alignment="TOP_CENTER">
+
+    <HBox styleClass="title-bar" alignment="CENTER">
+        <Label text="Saved Loans"/>
+    </HBox>
+
+    <ListView fx:id="listSaved" prefWidth="500" prefHeight="350"/>
+
+</VBox>

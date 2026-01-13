@@ -1,0 +1,85 @@
+@startuml
+
+package "com.seneca.inventory.model" {
+  abstract class Part {
+    - id   : int
+    - name : String
+    - price: double
+    - stock: int
+    - min  : int
+    - max  : int
+  }
+
+  class InHouse extends Part {
+    - machineId: int
+  }
+
+  class Outsourced extends Part {
+    - companyName: String
+  }
+
+  class Product {
+    - id   : int
+    - name : String
+    - price: double
+    - stock: int
+    - min  : int
+    - max  : int
+    - associatedParts: ObservableList<Part>
+  }
+}
+
+package "com.seneca.inventory.repository" {
+  class PartRepository {
+    - parts: ObservableList<Part>
+    + getAll(): ObservableList<Part>
+    + add(part: Part): void
+    + update(part: Part): void
+    + remove(part: Part): void
+    + findById(id: int): Part
+    + searchByName(name: String): ObservableList<Part>
+  }
+
+  class ProductRepository {
+    - products: ObservableList<Product>
+    + getAll(): ObservableList<Product>
+    + add(product: Product): void
+    + update(product: Product): void
+    + remove(product: Product): void
+    + findById(id: int): Product
+    + searchByName(name: String): ObservableList<Product>
+  }
+}
+
+package "com.seneca.inventory.service" {
+  class InventoryService {
+    - partRepo   : PartRepository
+    - productRepo: ProductRepository
+
+    + getAllParts(): ObservableList<Part>
+    + addPart(part: Part): void
+    + updatePart(part: Part): void
+    + deletePart(part: Part): void
+
+    + getAllProducts(): ObservableList<Product>
+    + addProduct(product: Product): void
+    + updateProduct(product: Product): void
+    + deleteProduct(product: Product): void
+
+    + searchParts(name: String): ObservableList<Part>
+    + searchProducts(name: String): ObservableList<Product>
+  }
+}
+
+Part <|-- InHouse
+Part <|-- Outsourced
+
+Product "1" o-- "*" Part : associatedParts
+
+InventoryService --> PartRepository
+InventoryService --> ProductRepository
+
+PartRepository --> Part
+ProductRepository --> Product
+
+@enduml

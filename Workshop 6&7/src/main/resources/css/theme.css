@@ -1,0 +1,55 @@
+/**********************************************
+ Workshop # 4, 5, 6 & 7
+ Course: APD545 - Fall 2025
+ Last Name: Gong
+ First Name: Hanbi
+ ID: 111932224
+ Section: NAA
+ This assignment represents my own work in accordance with Seneca Academic Policy.
+ Signature
+ Date: 2025-11-28
+ **********************************************/
+/* Base */
+.app-root {
+  -fx-background-color: #e9f5ff;
+  -fx-padding: 18;
+  -fx-font-family: "Inter", "SF Pro Text", "Segoe UI", Arial;
+  -fx-text-fill: #1e2a3a;
+}
+.card {
+  -fx-background-color: white;
+  -fx-background-radius: 16;
+  -fx-padding: 18;
+  -fx-effect: dropshadow(gaussian, rgba(30,42,58,0.12), 12, 0.2, 0, 4);
+  -fx-border-color: rgba(45,108,223,0.08);
+  -fx-border-radius: 16;
+}
+.title {
+  -fx-font-size: 22px;
+  -fx-font-weight: 800;
+  -fx-text-fill: #2277cc; /* 진한 하늘색 */
+}
+.section {
+  -fx-font-size: 16px;
+  -fx-font-weight: 700;
+}
+
+/* Inputs & Buttons */
+.text-input {
+  -fx-background-radius: 10;
+}
+
+/* Button palette */
+.btn        { -fx-background-radius: 12; -fx-padding: 8 16 8 16; -fx-font-weight: 700; }
+.btn-success{ -fx-background-color: #19a974; -fx-text-fill: white; }   /* Add / Modify / Save */
+.btn-danger { -fx-background-color: #e74d3c; -fx-text-fill: white; }   /* Delete */
+.btn-neutral{ -fx-background-color: #f1f5f9; -fx-text-fill: #1e2a3a; } /* Cancel / Exit */
+.btn-ghost  { -fx-background-color: transparent; -fx-text-fill: #2d6cdf; -fx-border-color: #2d6cdf; -fx-border-radius: 12; }
+
+/* Tables */
+.table {
+  -fx-background-radius: 12;
+  -fx-background-color: white;
+  -fx-border-color: rgba(30,42,58,0.08);
+  -fx-border-radius: 12;
+}

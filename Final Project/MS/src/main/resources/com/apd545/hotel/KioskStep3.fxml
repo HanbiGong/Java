@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.apd545.hotel.KioskStep3Controller"
+      spacing="20"
+      alignment="TOP_CENTER"
+      styleClass="page"
+      stylesheets="@app.css">
+
+    <children>
+        <HBox spacing="12" alignment="CENTER_LEFT" styleClass="appbar">
+            <children>
+                <Label text="Kiosk – Step 3: Room Selection" styleClass="title"/>
+            </children>
+        </HBox>
+
+        <VBox spacing="20" alignment="CENTER_LEFT" styleClass="card">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <Label text="Select how many rooms you need:" styleClass="section"/>
+
+            <HBox spacing="15" alignment="CENTER_LEFT">
+                <Label text="Single ($100):"/>
+                <Spinner fx:id="spSingle" prefWidth="80"/>
+            </HBox>
+
+            <HBox spacing="15" alignment="CENTER_LEFT">
+                <Label text="Double ($150):"/>
+                <Spinner fx:id="spDouble" prefWidth="80"/>
+            </HBox>
+
+            <HBox spacing="15" alignment="CENTER_LEFT">
+                <Label text="Deluxe ($200):"/>
+                <Spinner fx:id="spDeluxe" prefWidth="80"/>
+            </HBox>
+
+            <HBox spacing="15" alignment="CENTER_LEFT">
+                <Label text="Penthouse ($400):"/>
+                <Spinner fx:id="spPenthouse" prefWidth="80"/>
+            </HBox>
+
+            <Label fx:id="lblError" text="" styleClass="error"/>
+
+            <!-- Buttons -->
+            <HBox spacing="20" alignment="CENTER_RIGHT">
+                <Button text="Back" onAction="#backToStep2"/>
+                <Button text="Next" onAction="#goCustomerInfo"/>
+            </HBox>
+        </VBox>
+
+    </children>
+</VBox>

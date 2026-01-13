@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.apd545.hotel.KioskStep1Controller"
+      spacing="20"
+      alignment="TOP_CENTER"
+      styleClass="page"
+      stylesheets="@app.css">
+
+    <children>
+        <HBox spacing="12" alignment="CENTER_LEFT" styleClass="appbar">
+            <children>
+                <Label text="Kiosk – Step 1: Number of Guests" styleClass="title"/>
+            </children>
+        </HBox>
+
+        <VBox spacing="20" alignment="CENTER_LEFT" styleClass="card">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <!-- Adults -->
+            <HBox spacing="15" alignment="CENTER_LEFT">
+                <Label text="Adults:"/>
+                <Spinner fx:id="spAdults" prefWidth="80"/>
+            </HBox>
+
+            <!-- Children -->
+            <HBox spacing="15" alignment="CENTER_LEFT">
+                <Label text="Children:"/>
+                <Spinner fx:id="spChildren" prefWidth="80"/>
+            </HBox>
+
+            <!-- Next Button -->
+            <HBox alignment="CENTER_RIGHT">
+                <Button text="Next" onAction="#goStep2"/>
+            </HBox>
+        </VBox>
+
+    </children>
+</VBox>

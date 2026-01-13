@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.apd545.hotel.ConfirmationController"
+      spacing="20"
+      alignment="TOP_CENTER"
+      styleClass="page"
+      stylesheets="@app.css">
+
+    <HBox spacing="12" alignment="CENTER_LEFT" styleClass="appbar">
+        <Label text="Kiosk – Step 7: Booking Confirmation" styleClass="title"/>
+    </HBox>
+
+    <VBox spacing="20" alignment="CENTER_LEFT" styleClass="card">
+        <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+        <TitledPane text="Booking Details" expanded="true">
+            <content>
+                <GridPane hgap="15" vgap="10">
+                    <columnConstraints>
+                        <ColumnConstraints halignment="RIGHT" prefWidth="120"/>
+                        <ColumnConstraints prefWidth="260"/>
+                    </columnConstraints>
+
+                    <Label text="Guest:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                    <Label fx:id="lblGuest" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                    <Label text="Room:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                    <Label fx:id="lblRoom" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                    <Label text="Check-in:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                    <Label fx:id="lblCheckIn" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                    <Label text="Check-out:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                    <Label fx:id="lblCheckOut" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                    <Label text="Add-ons:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                    <Label fx:id="lblAddons" wrapText="true" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+                    <Label text="Total:" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+                    <Label fx:id="lblTotal" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+                </GridPane>
+            </content>
+        </TitledPane>
+
+        <Label text="Please confirm your booking details." styleClass="section"/>
+    </VBox>
+
+    <HBox spacing="15" alignment="CENTER_RIGHT">
+        <padding><Insets top="10" right="20" bottom="20" left="20"/></padding>
+        <Button text="Back" onAction="#handleBack"/>
+        <Button text="Finish" onAction="#handleConfirm"/>
+    </HBox>
+
+</VBox>

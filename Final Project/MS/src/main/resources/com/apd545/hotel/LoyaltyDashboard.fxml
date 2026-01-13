@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.apd545.hotel.LoyaltyDashboardController">
+
+    <top>
+        <VBox spacing="10" style="-fx-padding: 15;">
+            <Label text="Loyalty Dashboard" style="-fx-font-size: 20px;" />
+
+            <HBox spacing="10">
+                <TextField fx:id="txtSearchName"   promptText="Search by Name" prefWidth="150"/>
+                <TextField fx:id="txtSearchPhone"  promptText="Search by Phone" prefWidth="150"/>
+                <Button text="Search" onAction="#handleSearch"/>
+                <Button text="Reset"  onAction="#handleReset"/>
+                <Button text="Back"   onAction="#handleBack"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <TableView fx:id="tblCustomers" prefHeight="500" style="-fx-padding: 10;">
+            <columns>
+                <TableColumn fx:id="colId"      text="ID"         prefWidth="60"/>
+                <TableColumn fx:id="colName"    text="Name"       prefWidth="150"/>
+                <TableColumn fx:id="colPhone"   text="Phone"      prefWidth="120"/>
+                <TableColumn fx:id="colEmail"   text="Email"      prefWidth="180"/>
+                <TableColumn fx:id="colPoints"  text="Points"     prefWidth="100"/>
+                <TableColumn fx:id="colLoyalty" text="Loyalty #"  prefWidth="120"/>
+            </columns>
+        </TableView>
+    </center>
+
+</BorderPane>

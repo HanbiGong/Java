@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            stylesheets="@style.css"
+            fx:controller="ca.senecacollege.application.workshop3.controllers.VehicleController"
+            prefWidth="750" prefHeight="650">
+
+    <children>
+
+        <VBox spacing="20" alignment="TOP_CENTER"
+              AnchorPane.topAnchor="0"
+              AnchorPane.leftAnchor="0"
+              AnchorPane.rightAnchor="0">
+
+            <HBox styleClass="title-bar" alignment="CENTER">
+                <Label text="Vehicle Information"/>
+            </HBox>
+
+            <HBox spacing="10" alignment="CENTER">
+                <Label text="Vehicle Type:"/>
+                <RadioButton text="Car" fx:id="rbCar"/>
+                <RadioButton text="Truck" fx:id="rbTruck"/>
+                <RadioButton text="Van" fx:id="rbVan"/>
+            </HBox>
+
+            <HBox spacing="10" alignment="CENTER">
+                <Label text="Age:"/>
+                <RadioButton text="New" fx:id="rbNew"/>
+                <RadioButton text="Used" fx:id="rbUsed"/>
+            </HBox>
+
+            <HBox spacing="10" alignment="CENTER">
+                <Label text="Price:"/>
+                <TextField fx:id="txtPrice" prefWidth="200"/>
+            </HBox>
+
+            <Button text="Next" onAction="#onNext" prefWidth="200"/>
+
+        </VBox>
+
+    </children>
+
+</AnchorPane>

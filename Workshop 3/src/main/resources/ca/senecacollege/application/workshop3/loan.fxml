@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            stylesheets="@style.css"
+            fx:controller="ca.senecacollege.application.workshop3.controllers.LoanController"
+            prefWidth="700" prefHeight="550">
+
+    <VBox spacing="25" alignment="TOP_CENTER">
+
+        <HBox styleClass="title-bar" alignment="CENTER">
+            <Label text="Loan Information"/>
+        </HBox>
+
+        <GridPane hgap="15" vgap="15">
+            <columnConstraints>
+                <ColumnConstraints halignment="RIGHT" prefWidth="180"/>
+                <ColumnConstraints halignment="LEFT" prefWidth="240"/>
+                <ColumnConstraints halignment="LEFT" prefWidth="80"/>
+            </columnConstraints>
+
+            <Label text="Down Payment:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <TextField fx:id="txtDownPayment" prefWidth="200" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+            <Label text="Interest Rate:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <ComboBox fx:id="cmbInterest" prefWidth="150" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+            <Label text="Duration (months):" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+            <Slider fx:id="sldDuration" min="6" max="84" value="36"
+                    prefWidth="220"
+                    GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+            <Label fx:id="lblDurationVal" text="36"
+                   GridPane.rowIndex="2" GridPane.columnIndex="2"/>
+
+            <Label text="Payment Frequency:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+            <ComboBox fx:id="cmbFrequency" prefWidth="150" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+            <Label text="Estimated Payment:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+            <Label fx:id="lblPayment" text="\$0.00"
+                   GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+        </GridPane>
+
+        <HBox spacing="15" alignment="CENTER">
+            <Button text="Calculate" onAction="#onCalculate"/>
+            <Button text="Save" onAction="#onSave"/>
+            <Button text="Clear" onAction="#onClear"/>
+            <Button text="Show Saved Rates" onAction="#onShow"/>
+            <Button text="View Amortization" onAction="#onAmortization"/>
+        </HBox>
+
+        <ListView fx:id="listSaved" prefWidth="550" prefHeight="150"/>
+
+    </VBox>
+
+</AnchorPane>

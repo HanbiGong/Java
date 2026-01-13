@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.apd545.hotel.FeedbackController"
+      spacing="20"
+      alignment="TOP_CENTER"
+      styleClass="page"
+      stylesheets="@app.css">
+
+    <HBox spacing="12" alignment="CENTER_LEFT" styleClass="appbar">
+        <Label text="Guest Feedback" styleClass="title"/>
+    </HBox>
+
+    <VBox spacing="20" alignment="CENTER_LEFT" styleClass="card">
+        <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+        <!-- Step 1 -->
+        <TitledPane text="Step 1 – Identify your reservation" expanded="true">
+            <content>
+                <VBox spacing="12">
+                    <GridPane hgap="10" vgap="8">
+                        <columnConstraints>
+                            <ColumnConstraints prefWidth="120" halignment="RIGHT"/>
+                            <ColumnConstraints prefWidth="250"/>
+                        </columnConstraints>
+
+                        <Label text="Phone Number:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                        <TextField fx:id="txtPhone"
+                                   promptText="Enter phone used for booking"
+                                   GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                    </GridPane>
+
+                    <HBox spacing="10">
+                        <Button text="Check Eligibility" onAction="#onCheckPhone"/>
+                        <Label fx:id="lblCheckMsg" styleClass="error"/>
+                    </HBox>
+                </VBox>
+            </content>
+        </TitledPane>
+
+        <!-- Step 2 -->
+        <TitledPane text="Step 2 – Share your feedback" expanded="true">
+            <content>
+                <VBox fx:id="boxForm" spacing="12" visible="false">
+
+                    <Label text="Rating (1 = Poor, 5 = Excellent)" />
+
+                    <Slider fx:id="sldRating"
+                            min="1" max="5" value="5"
+                            majorTickUnit="1"
+                            showTickLabels="true"
+                            showTickMarks="true"/>
+
+                    <Label text="Comments"/>
+                    <TextArea fx:id="txtComments"
+                              promptText="Write your feedback here (optional)"
+                              prefRowCount="4"/>
+
+                    <Label fx:id="lblMsg" textFill="green"/>
+
+                    <HBox spacing="10">
+                        <Button text="Back" onAction="#onBack"/>
+                        <Button text="Submit Feedback" onAction="#onSubmit"/>
+                    </HBox>
+
+                </VBox>
+            </content>
+        </TitledPane>
+
+    </VBox>
+
+    <!-- Bottom Buttons -->
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <padding><Insets top="10" right="20" bottom="20" left="20"/></padding>
+        <Button text="Back to Home" onAction="#onBack"/>
+    </HBox>
+
+</VBox>

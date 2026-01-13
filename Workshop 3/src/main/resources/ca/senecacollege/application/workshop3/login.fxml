@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="ca.senecacollege.application.workshop3.controllers.LoginController"
+            stylesheets="@style.css"
+            prefWidth="600" prefHeight="500">
+
+    <children>
+
+        <!-- 🔥 강화된 헤더 (높이 증가 + 중앙 정렬 + 진한 녹색) -->
+        <HBox styleClass="header"
+              alignment="CENTER"
+              prefHeight="110"
+              AnchorPane.topAnchor="0"
+              AnchorPane.leftAnchor="0"
+              AnchorPane.rightAnchor="0">
+
+            <Label text="Login" styleClass="header-title"/>
+        </HBox>
+
+        <!-- ✔ 본문 중앙 정렬 -->
+        <VBox spacing="20" alignment="CENTER"
+              AnchorPane.topAnchor="150"
+              AnchorPane.leftAnchor="0"
+              AnchorPane.rightAnchor="0">
+
+            <VBox alignment="CENTER" spacing="5">
+                <Label text="Username:"/>
+                <TextField fx:id="txtUsername" prefWidth="260"/>
+            </VBox>
+
+            <VBox alignment="CENTER" spacing="5">
+                <Label text="Password:"/>
+                <PasswordField fx:id="txtPassword" prefWidth="260"/>
+            </VBox>
+
+            <Label fx:id="lblMessage" style="-fx-text-fill:red;"/>
+
+            <VBox spacing="12" alignment="CENTER">
+                <Button text="Login" prefWidth="180" styleClass="action-button" onAction="#onLogin"/>
+                <Button text="Back" prefWidth="180" styleClass="action-button" onAction="#onBack"/>
+            </VBox>
+
+        </VBox>
+
+    </children>
+
+</AnchorPane>
+

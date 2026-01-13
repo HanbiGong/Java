@@ -1,0 +1,178 @@
+@startuml
+
+' ===========================
+' ENTITY / MODEL CLASSES
+' ===========================
+class Reservation {
+    - int id
+    - String guestName
+    - String roomName
+    - LocalDate checkIn
+    - LocalDate checkOut
+    - String addons
+    - double total
+    - String status
+    - String phone
+    - int rating
+    - String comments
+    - String sentiment
+}
+
+class ActivityLog {
+    - int id
+    - String username
+    - String action
+    - LocalDateTime timestamp
+}
+
+class Customer {
+    - int id
+    - String name
+    - String phone
+    - int points
+}
+
+' ===========================
+' SERVICE LAYER
+' ===========================
+class ReservationService {
+    - static instance
+    - ReservationRepository repo
+    + createReservation(...)
+    + update(...)
+    + checkout(...)
+    + saveFeedback(...)
+    + getAll()
+    + findByPhone(...)
+}
+
+class ActivityLogService {
+    - static instance
+    - ActivityLogRepository repo
+    + log(user, action)
+    + getAll()
+}
+
+class LoyaltyService {
+    - static instance
+    - CustomerRepository repo
+    + register(phone)
+    + addPoints(phone, amount)
+    + usePoints(phone, amount)
+}
+
+' ===========================
+' REPOSITORIES
+' ===========================
+class ReservationRepository {
+    - static instance
+    + save(...)
+    + update(...)
+    + findAll()
+    + findById(...)
+    + findByPhone(...)
+}
+
+class ActivityLogRepository {
+    - static instance
+    + save(...)
+    + findAll()
+}
+
+class CustomerRepository {
+    - static instance
+    + save(...)
+    + update(...)
+    + findByPhone(...)
+}
+
+' ===========================
+' KIOSK FLOW HELPERS
+' ===========================
+class BookingInfo {
+    - int adults
+    - int children
+    - LocalDate checkIn
+    - LocalDate checkOut
+    - int singleCount
+    - int doubleCount
+    - int deluxeCount
+    - int penthouseCount
+    - String guestName
+    - String phone
+    - boolean wifi
+    - boolean breakfast
+    - boolean parking
+    - boolean spa
+    - double subtotal
+    - double tax
+    - double total
+}
+
+class AppState {
+    - static BookingInfo bookingInfo
+    + getBookingInfo()
+    + setBookingInfo(...)
+}
+
+' ===========================
+' DECORATOR (ROOM PRICE)
+' ===========================
+interface RoomPrice {
+    + calculate()
+}
+
+abstract class RoomPriceDecorator implements RoomPrice {
+    # RoomPrice inner
+}
+
+class BaseRoomPrice implements RoomPrice {
+    - BookingInfo info
+    - long nights
+}
+
+class WifiDecorator
+class BreakfastDecorator
+class ParkingDecorator
+class SpaDecorator
+
+RoomPriceDecorator <|-- WifiDecorator
+RoomPriceDecorator <|-- BreakfastDecorator
+RoomPriceDecorator <|-- ParkingDecorator
+RoomPriceDecorator <|-- SpaDecorator
+RoomPrice <|.. RoomPriceDecorator
+RoomPrice <|.. BaseRoomPrice
+
+' ===========================
+' FACTORY
+' ===========================
+class RoomFactory {
+    + create(type)
+}
+
+class Room
+class SingleRoom
+class DoubleRoom
+class DeluxeRoom
+class PenthouseRoom
+
+Room <|-- SingleRoom
+Room <|-- DoubleRoom
+Room <|-- DeluxeRoom
+Room <|-- PenthouseRoom
+
+' ===========================
+' RELATIONSHIPS
+' ===========================
+ReservationService --> ReservationRepository
+ReservationService --> ActivityLogService
+
+ActivityLogService --> ActivityLogRepository
+LoyaltyService --> CustomerRepository
+
+Reservation --> ActivityLog : "logged actions"
+Customer --> Reservation : "loyalty applies"
+
+BookingInfo --> Reservation : "converted to"
+
+@enduml

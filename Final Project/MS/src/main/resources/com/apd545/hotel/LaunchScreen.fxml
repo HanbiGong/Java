@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.apd545.hotel.LaunchScreen"
+      spacing="12" styleClass="page"
+      stylesheets="@app.css">
+
+    <children>
+
+        <!-- Top app bar -->
+        <HBox spacing="12" alignment="CENTER_LEFT"
+              styleClass="appbar">
+            <children>
+                <Label text="Hotel Reservation System"
+                       styleClass="title"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <!-- Rules & Regulations is always visible from welcome screen -->
+                <Button text="Rules &amp; Regulations" onAction="#showRules"/>
+            </children>
+        </HBox>
+
+        <!-- Welcome card -->
+        <VBox spacing="10" alignment="TOP_LEFT" styleClass="card">
+            <children>
+                <Label text="Welcome to self-service kiosk"
+                       styleClass="section"/>
+                <Label text="This kiosk helps guests make a reservation, choose dates, pick room types, and review the total before confirming."
+                       wrapText="true"/>
+
+                <Label text="Choose a module to open:"
+                       style="-fx-font-weight: bold;"/>
+
+                <GridPane hgap="16" vgap="12">
+                    <columnConstraints>
+                        <ColumnConstraints percentWidth="50"/>
+                        <ColumnConstraints percentWidth="50"/>
+                    </columnConstraints>
+
+                    <children>
+                        <!-- Kiosk self-service -->
+                        <Button text="Kiosk (self-service)"
+                                prefHeight="60"
+                                maxWidth="Infinity"
+                                GridPane.rowIndex="0" GridPane.columnIndex="0"
+                                onAction="#goKiosk"/>
+
+                        <!-- Admin module -->
+                        <Button text="Admin module"
+                                prefHeight="60"
+                                maxWidth="Infinity"
+                                GridPane.rowIndex="0" GridPane.columnIndex="1"
+                                onAction="#goAdmin"/>
+
+                        <!-- Guest feedback -->
+                        <Button text="Feedback (guest)"
+                                prefHeight="60"
+                                maxWidth="Infinity"
+                                GridPane.rowIndex="1" GridPane.columnIndex="0"
+                                onAction="#goFeedback"/>
+
+                        <!-- Reporting: revenue / occupancy / activity logs -->
+                        <Button text="Reporting (tabular only)"
+                                prefHeight="60"
+                                maxWidth="Infinity"
+                                GridPane.rowIndex="1" GridPane.columnIndex="1"
+                                onAction="#goReporting"/>
+                    </children>
+                </GridPane>
+            </children>
+        </VBox>
+
+    </children>
+</VBox>

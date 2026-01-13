@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.apd545.hotel.CustomerInfoController"
+      spacing="20"
+      alignment="TOP_CENTER"
+      styleClass="page"
+      stylesheets="@app.css">
+
+    <HBox spacing="12" alignment="CENTER_LEFT" styleClass="appbar">
+        <Label text="Kiosk – Step 4: Guest Information" styleClass="title"/>
+    </HBox>
+
+    <VBox spacing="20" alignment="CENTER_LEFT" styleClass="card">
+        <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+        <GridPane hgap="15" vgap="12">
+            <columnConstraints>
+                <ColumnConstraints halignment="RIGHT" prefWidth="120"/>
+                <ColumnConstraints prefWidth="250"/>
+            </columnConstraints>
+
+            <Label text="First Name:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <TextField fx:id="txtFirstName" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+            <Label text="Last Name:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <TextField fx:id="txtLastName" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+            <Label text="Province:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+            <TextField fx:id="txtProvince" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+            <Label text="City:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+            <TextField fx:id="txtCity" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+            <Label text="Country:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+            <TextField fx:id="txtCountry" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+            <Label text="Address:" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+            <TextField fx:id="txtAddress" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+
+            <Label text="Phone:" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
+            <TextField fx:id="txtPhone" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+
+            <Label text="Email:" GridPane.rowIndex="7" GridPane.columnIndex="0"/>
+            <TextField fx:id="txtEmail" GridPane.rowIndex="7" GridPane.columnIndex="1"/>
+        </GridPane>
+
+        <!-- Register Checkbox -->
+        <CheckBox fx:id="registerCheckBox" text="Register for Loyalty Program"/>
+
+        <!-- Loyalty Info Box (Initially Hidden) -->
+        <VBox fx:id="loyaltyBox" spacing="6" visible="false">
+            <Label fx:id="loyaltyNumberLabel" text="Loyalty #: " />
+            <Label fx:id="loyaltyPointsLabel" text="Points: " />
+        </VBox>
+
+        <Label fx:id="lblError" styleClass="error"/>
+
+    </VBox>
+
+    <!-- Bottom Buttons -->
+    <HBox spacing="15" alignment="CENTER_RIGHT">
+        <padding><Insets top="10" right="20" bottom="20" left="20"/></padding>
+        <Button text="Back" onAction="#backToStep3"/>
+        <Button text="Next" onAction="#handleNext"/>
+    </HBox>
+
+</VBox>
