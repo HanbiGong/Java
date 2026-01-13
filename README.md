@@ -2,7 +2,7 @@
 
 This repository contains my APD545 course work in Java/JavaFX, including Workshops 1–7 and the final Hotel Reservation System milestone project.
 
-- 'Workshop-01/` ~ `Workshop-07/`: Weekly workshop tasks (separate mini projects)
+- `workshop-01/` ~ `workshop-07/`: Weekly workshop tasks (separate mini projects)
 - `Final Project/`: Final milestone project (Hotel Reservation System)
 
 ## Tech Stack
